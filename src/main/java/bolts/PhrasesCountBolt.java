@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class WordCountBolt extends BaseRichBolt {
+public class PhrasesCountBolt extends BaseRichBolt {
 
     private final Map<String, Integer> wordCounts = new HashMap<>();
     private long toFileAfter = 0;
@@ -26,17 +26,17 @@ public class WordCountBolt extends BaseRichBolt {
 
     @Override
     public void execute(final Tuple input) {
-        final String word = input.getStringByField("word");
-        if (wordCounts.containsKey(word)) {
-            wordCounts.put(word, wordCounts.get(word) + 1);
+        final String phrase = input.getStringByField("phrase");
+        if (wordCounts.containsKey(phrase)) {
+            wordCounts.put(phrase, wordCounts.get(phrase) + 1);
         } else {
-            wordCounts.put(word, 0);
+            wordCounts.put(phrase, 0);
         }
 
         toFileAfter++;
 
         if (toFileAfter % 50L == 0L) {
-            final String fileContent = wordCounts.entrySet().stream().map(wc -> "Word: " + wc.getKey() + "| Count: " + wc.getValue()).
+            final String fileContent = wordCounts.entrySet().stream().map(wc -> "Phrase: " + wc.getKey() + "| Count: " + wc.getValue()).
                     collect(Collectors.joining(System.lineSeparator()));
             try {
                 Files.write(Paths.get("Task" + taskId + ".txt"), fileContent.getBytes());

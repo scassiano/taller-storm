@@ -1,0 +1,2 @@
+Phrase: escribir por ejemplo la noche estã¡ estrellada,| Count: 5809
+Phrase: la noche estã¡ estrellada y ella no estã¡ conmigo| Count: 5739

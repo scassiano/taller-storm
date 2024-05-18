@@ -12,10 +12,22 @@ import java.util.Random;
 
 public class SendPhrasesSpout extends BaseRichSpout {
 
-    private static final String[] phrases = {"Hola como estas", "Hola como te va", "Este es otro ejemplo",
-            "Ejemplo es lo que sobra", "Estas en el horno", "El horno de mi mama", "Estas fraces son un ejemplo de encaje",
-            "Encaje tiene el vestido de mi mama", "Mama es mal", "Mama es buena", "Vamos los pibes", "Pibes era un perfume",
-            "El perfume un gran libro es", "Ahora le pinto Yoda"};
+    private static final String[] phrases = {
+            "Puedo escribir los versos más tristes esta noche,",
+            "Escribir por ejemplo La noche está estrellada,",
+            "y tiritan azules los astros a lo lejos",
+            "Puedo escribir los versos más tristes esta noche",
+            "Yo la quise y a veces ella también me quiso",
+            "En las noches como ésta la tuve entre mis brazos",
+            "La besé tantas veces bajo el cielo infinito",
+            "Ella me quiso a veces yo también la quería",
+            "Cómo no haber amado sus grandes ojos fijos",
+            "Puedo escribir los versos más tristes esta noche",
+            "Piensa en mí que soy así, como te decía",
+            "La noche está estrellada y ella no está conmigo",
+            "Este es el último dolor que ella me causa",
+            "Y estos son los últimos versos que le escribo"
+    };
 
     private SpoutOutputCollector collector;
 

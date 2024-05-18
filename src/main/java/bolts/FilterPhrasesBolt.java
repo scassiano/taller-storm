@@ -11,9 +11,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
 
-public class FilterWordsBolt extends BaseRichBolt {
+public class FilterPhrasesBolt extends BaseRichBolt {
 
-    private static final String[] forbiddenPhrases = {"va", "es", "lo", "en", "de", "un", "el", "le"};
+    private static final String[] forbiddenPhrases = {"y tiritan azules los astros a lo lejos"};
 
     private OutputCollector collector;
 
@@ -24,15 +24,15 @@ public class FilterWordsBolt extends BaseRichBolt {
 
     @Override
     public void execute(final Tuple input) {
-        final String word = input.getStringByField("word");
-        if (!Arrays.stream(forbiddenPhrases).anyMatch(w -> w.equals(word))) {
-            collector.emit(Collections.singletonList(word));
+        final String phrase = input.getStringByField("phrase");
+        if (!Arrays.stream(forbiddenPhrases).anyMatch(w -> w.equals(phrase))) {
+            collector.emit(Collections.singletonList(phrase));
         }
     }
 
     @Override
     public void declareOutputFields(final OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("word"));
+        declarer.declare(new Fields("phrase"));
     }
 
 }

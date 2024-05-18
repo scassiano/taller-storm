@@ -21,12 +21,12 @@ public class ToLowerCaseBolt extends BaseRichBolt {
 
     @Override
     public void execute(final Tuple input) {
-        collector.emit(Collections.singletonList(input.getStringByField("word").toLowerCase()));
+        collector.emit(Collections.singletonList(input.getStringByField("phrase").toLowerCase()));
     }
 
     @Override
     public void declareOutputFields(final OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("word"));
+        declarer.declare(new Fields("phrase"));
     }
 
 }
